@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LFGROW — KOL Platform</title>
+<title>KOL SCOUT</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -386,9 +386,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 #matrix-view{background:#000;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
 .analysis-v2{max-width:1400px;margin:0 auto;padding:32px 28px 80px;min-height:100%;position:relative}
 
-.av2-header{text-align:center;margin-bottom:36px;position:relative}
+.av2-header{margin-bottom:24px;position:relative;min-height:24px}
 .av2-back{position:absolute;left:0;top:8px;color:var(--pink);font-size:13px;cursor:pointer;font-weight:600}
 .av2-back:hover{opacity:.75}
+.av2-content-header{text-align:center;margin-bottom:28px}
+.av2-content-header .av2-title{margin:0 0 10px}
+.av2-content-header .av2-subtitle{margin:0}
 .av2-title{font-size:clamp(48px,7vw,80px);font-weight:900;letter-spacing:-0.02em;line-height:1;color:#fff;margin:0 0 10px}
 .av2-subtitle{font-size:13px;color:rgba(255,255,255,.45);margin:0;font-style:italic}
 .av2-subtitle span{color:#fff;font-weight:700}
@@ -529,7 +532,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 @media (max-width:768px){
   .analysis-v2{padding:20px 14px 60px}
   .av2-back{position:static;margin-bottom:8px;display:inline-block}
-  .av2-header{text-align:left}
+  .av2-content-header{text-align:left}
   .av2-title{font-size:44px;text-align:left}
   .av2-subtitle{text-align:left}
   .pd-card{padding:18px 16px 14px}
@@ -2610,11 +2613,9 @@ document.addEventListener('mouseout', (e) => {
   <div id="badge-tooltip" class="badge-tooltip"></div>
   <div class="analysis-v2">
 
-    <!-- HEADER -->
+    <!-- HEADER (back button only) -->
     <div class="av2-header">
       <div class="av2-back" onclick="showResults()">&#8592; Back to KOL List</div>
-      <h1 class="av2-title">KOL Analysis</h1>
-      <p class="av2-subtitle"><span id="analysis-kol-count">0</span> KOLs analysed, weighted across 4 pillars</p>
     </div>
 
     <!-- 2-COLUMN: WEIGHTS LEFT, CONTENT RIGHT -->
@@ -2632,6 +2633,11 @@ document.addEventListener('mouseout', (e) => {
 
       <!-- RIGHT: MAIN CONTENT -->
       <div class="av2-content">
+
+        <div class="av2-content-header">
+          <h1 class="av2-title">KOL Analysis</h1>
+          <p class="av2-subtitle"><span id="analysis-kol-count">0</span> KOLs analysed, weighted across 4 pillars</p>
+        </div>
 
         <section class="av2-podium-section">
           <div class="av2-section-title">Top 3 Picks</div>
